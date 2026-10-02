@@ -99,14 +99,19 @@ namespace GameWPF.UI.Views
         }
         public void AttackButtonClick(object sender, RoutedEventArgs e)
         {
+            var levelBeforeKill = _player.Level;
             BattleManager.AttackNpc(_player, _npc);
             NPCInfo(_npc);
             if (_npc.IsDead)
             {
                 RewardManager.RewardPlayer(_player, _npc);
+                if (levelBeforeKill != _player.Level)
+                {
+                    _player.Health = _player.MaxHealth;
+                }
                 MessageBox.Show("You won!","BattleInfo");
                 MessageBox.Show($"You just got {_npc.GoldReward} gold and {_npc.ExperienceReward} xp", "BattleInfo");
-
+                
                 AttackButton.IsEnabled = false;
                 RunButton.IsEnabled = false;
                 ShowBackToActionsButton();
