@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameWPF.UI"
+        xmlns:views="clr-namespace:GameWPF.UI.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow"
+        WindowState="Maximized">
 
+    <Grid>
+        <ContentControl x:Name="ScreenHost"/>
     </Grid>
 </Window>

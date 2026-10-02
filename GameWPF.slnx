@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="GameWPF.Core/GameWPF.Core.csproj" Id="45062671-73e1-4073-ac01-b85195e3d73d" />
   <Project Path="GameWPF.UI/GameWPF.UI.csproj" />
 </Solution>

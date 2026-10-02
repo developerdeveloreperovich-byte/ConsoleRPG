@@ -1,9 +1,11 @@
-﻿using ConsoleRPG;
-
+﻿using GameWPF.Core.Enums;
+using GameWPF.Core.Models;
+using System.Collections.ObjectModel;
 public abstract class Character : CombatEntity
 {
     private int _experience;
     private int _gold;
+    public ObservableCollection<Item> Inventory { get; } = new();
     public int Experience
     {
         get { return _experience; }
@@ -27,6 +29,7 @@ public abstract class Character : CombatEntity
         get { return _gold; }
         set { _gold = value; }
     }
+
     protected Character(int baseHealth, int strength, int defense, int experience, int gold, string name, Level level = Level.Level1) : base(baseHealth, strength, defense, name, level)
     {
         Experience = experience;

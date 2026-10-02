@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GameWPF.Core.Enums;
+using GameWPF.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleRPG
+namespace GameWPF.Core.Models
 {
     public abstract class CombatEntity : ICharacter
     {

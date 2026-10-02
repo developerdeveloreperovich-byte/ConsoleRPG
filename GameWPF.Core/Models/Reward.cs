@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleRPG
+namespace GameWPF.Core.Models
 {
     public class Reward
     {

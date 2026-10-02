@@ -1,8 +1,9 @@
-﻿using System;
+﻿using GameWPF.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleRPG
+namespace GameWPF.Core.Managers
 {
     public static class RewardManager
     {

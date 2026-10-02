@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="GameWPF.UI.Views.BattleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GameWPF.UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FFF3F5F7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="BATTLE"
+                   Grid.Row="0"
+                   Margin="0,28,0,12"
+                   FontFamily="Bahnschrift"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"/>
+
+        <Grid Grid.Row="1" Margin="32,16,32,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0" Grid.Column="0"
+                    Margin="6,10,6,0"
+                    Padding="24"
+                    Background="White"
+                    BorderBrush="#FF4E8A78"
+                    BorderThickness="2"
+                    CornerRadius="8"
+                    VerticalAlignment="Top">
+                <StackPanel>
+                    <TextBlock Text="PLAYER"
+                               Margin="0,0,0,16"
+                               Foreground="#FF35725F"
+                               FontSize="18"
+                               FontWeight="Bold"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="PlayerPortrait"
+                               Width="120"
+                               Height="120"
+                               Stretch="Uniform"
+                               Margin="0,0,18,0"/>
+                        <TextBlock x:Name="PlayerInfoText"
+                                   FontSize="17"
+                                   LineHeight="28"
+                                   TextWrapping="Wrap"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                       Text="VS"
+                       Margin="8,103,8,0"
+                       Foreground="#FF68717D"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       VerticalAlignment="Top" RenderTransformOrigin="0.541,1.62"/>
+
+            <Border Grid.Row="0" Grid.Column="2"
+                    Margin="6,10,6,0"
+                    Padding="24"
+                    Background="White"
+                    BorderBrush="#FFB95858"
+                    BorderThickness="2"
+                    CornerRadius="8"
+                    VerticalAlignment="Top">
+                <StackPanel>
+                    <TextBlock Text="OPPONENT"
+                               Margin="0,0,0,16"
+                               Foreground="#FF9C3F3F"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               />
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="NPCPortrait"
+                               Width="120"
+                               Height="120"
+                               Stretch="Uniform"
+                               Margin="0,0,18,0"/>
+                        <TextBlock x:Name="NPCInfoText"
+                                   FontSize="17"
+                                   LineHeight="28"
+                                   TextWrapping="Wrap"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                </StackPanel>
+            </Border>
+
+                    <StackPanel Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Margin="0,24,0,0">
+                    <Button x:Name="AttackButton"
+                        Content="Attack"
+                        Width="170"
+                        Height="48"
+                        Margin="0,0,12,0"
+                        Background="#FF9C3F3F"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Click="AttackButtonClick"/>
+                    <Button x:Name="RunButton"
+                        Content="Try to run"
+                        Width="170"
+                        Height="48"
+                        Background="#FF526174"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Click="RunButtonClick"/>
+                    <Button x:Name="BackToMainMenuButton"
+                        Content="Main menu"
+                        Width="170"
+                        Height="48"
+                        Margin="12,0,0,0"
+                        Background="#FF526174"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Visibility="Collapsed"
+                        Click="BackToMainMenuButtonClick"/>
+                    <Button x:Name="BackToActionsButton"
+                        Content="Back to actions"
+                        Width="170"
+                        Height="48"
+                        Margin="12,0,0,0"
+                        Background="#FF35725F"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Visibility="Collapsed"
+                        Click="BackToActionsButtonClick"/>
+                    </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

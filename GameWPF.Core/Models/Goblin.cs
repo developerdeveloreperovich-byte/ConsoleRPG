@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GameWPF.Core.Enums;
+using GameWPF.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleRPG
+namespace GameWPF.Core.Models
 {
     class Goblin : NPC
     {
@@ -19,7 +21,7 @@ namespace ConsoleRPG
         }
         public override void Attack(ICharacter target)
         {
-            Console.WriteLine("Goblin smash!!");
+            //Console.WriteLine("Goblin smash!!");
             target.TakeDamage(Strength + (new Random()).Next(1, 10));
         }
     }

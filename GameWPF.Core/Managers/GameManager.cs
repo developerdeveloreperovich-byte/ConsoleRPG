@@ -1,14 +1,73 @@
-﻿using System;
+﻿using GameWPF.Core.Enums;
+using GameWPF.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace ConsoleRPG
+namespace GameWPF.Core.Managers
 {
     public static class GameManager
     {
-        private static Character character;
+        private static Character character;//todo:remove
+        public static Character Player { get; private set; }
+
+        public static void RestorePlayer(SaveData data)
+        {
+            CreateCharacter(data.CharacterClass);
+
+            Player.Health = data.Health;
+            Player.Gold = data.Gold;
+            Player.Experience = data.Experience;
+            Player.Inventory.Clear();
+
+            foreach (int itemId in data.InventoryItemIds)
+            {
+                var item = StoreManager.Catalog.FirstOrDefault(item => item.Id == itemId);
+                if (item is not null)
+                {
+                    Player.Inventory.Add(item);
+                }
+            }
+        }
+        public static bool UseItem(Character player, Item item)
+        {
+            var foundItem = player.Inventory.First(playerItem => playerItem.Name == item.Name);
+
+            if (foundItem is HealingPotion potion)
+            {
+                player.Health += potion.HealPower;
+
+                if (player.Health > player.MaxHealth)
+                    player.Health = player.MaxHealth;
+
+            }
+            else
+            {
+                return false;
+            }
+            player.Inventory.Remove(foundItem);
+
+            return true;
+        }
+        public static void CreateCharacter(CharacterClass selectedClass)
+        {
+            switch (selectedClass)
+            {
+                case CharacterClass.Warrior:
+                    Player = new Warrior();
+                    break;
+                case CharacterClass.Archer:
+                    Player = new Archer();
+                    break;
+                case CharacterClass.Mage:
+                    Player = new Mage();
+                    break;
+                default:
+                    throw new Exception($"There is no such class as {selectedClass}");
+            }
+        }
         public static Character ChooseClass()
         {
             Console.WriteLine("Choose your game class: \n1 - Warrior\n2 - Archer\n3 - Mage");
@@ -48,7 +107,8 @@ namespace ConsoleRPG
         }
         public static void StartBattle(Character character, NPC npc)
         {
-            Console.WriteLine("\nBattle is begin, your opponent is... " + npc.Name + "\n");
+            //Console.WriteLine("\nBattle is begin, your opponent is... " + npc.Name + "\n");
+
 
             bool _isRun = false;
 
@@ -125,11 +185,11 @@ namespace ConsoleRPG
         {
             int opponent = new Random().Next(1, 4);
             if (opponent == 1)
-                return new Goblin(level: character.Level);
+                return new Goblin(level: Player.Level);
             if (opponent == 2)
-                return new Orc(level: character.Level);
+                return new Orc(level: Player.Level);
             else
-                return new Zombie(level: character.Level);
+                return new Zombie(level: Player.Level);
         }
 
         public static void DrawGameMenu()
@@ -163,19 +223,23 @@ namespace ConsoleRPG
                 }
             }
         }
-        public static void DiscoverWorld(Character character)
+        public static DiscoveryObject DiscoverWorld(Character character)
         {
-            Console.WriteLine("You are walking down by the river and you notice something...");
             DiscoveryObject discoveredObject = GoldOrTrap(character);
             if (discoveredObject is Gold gold)
             {
-                Console.WriteLine($"Wow, you have found {gold.GoldAmount} gold!");
-                RewardManager.RewardPlayer(character, gold.GoldAmount);   
+                //Console.WriteLine($"Wow, you have found {gold.GoldAmount} gold!");                
+                //RewardManager.RewardPlayer(character, gold.GoldAmount);
+                return discoveredObject;
             }
             else if (discoveredObject is DiscoveredNPC npc)
             {
-                Console.WriteLine("Oops.. enemy is going to approach you, battle is about to begin..\n");
-                StartBattle(character, npc.NPC);
+                //Console.WriteLine("Oops.. enemy is going to approach you, battle is about to begin..\n");
+                return discoveredObject;
+            }
+            else
+            {
+                throw new Exception("No such discoveryObject have found");
             }
         }
         public static DiscoveryObject GoldOrTrap(Character character)

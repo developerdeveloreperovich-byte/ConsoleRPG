@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleRPG
+namespace GameWPF.Core.Managers
 {
     public static class MenuManager
     {
@@ -12,7 +12,7 @@ namespace ConsoleRPG
             {
 
                 Console.WriteLine("========================================================================");
-                Console.WriteLine("\t\tWelcome to the ConsoleRPG!");
+                Console.WriteLine("\t\tWelcome to the GameWPF.Core!");
 
                 Console.WriteLine("Chose an option: \n1 - Start the game\n2 - Read the rules\n0 - Exit");
                 Console.Write("Enter your option: ");

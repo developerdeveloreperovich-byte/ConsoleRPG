@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GameWPF.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace ConsoleRPG
+namespace GameWPF.Core.Managers
 {
     public static class BattleManager
     {
