@@ -6,52 +6,75 @@
              xmlns:local="clr-namespace:GameWPF.UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="White">
-    <Grid>
-        <Grid x:Name="ClassSelectionPanel">
+             Background="{StaticResource CanvasGradientBrush}">
+    <Grid Background="{StaticResource CanvasGradientBrush}">
+        <Grid x:Name="ClassSelectionPanel" Margin="34">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Name="GameTextControl" Content="Choose your class:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5"/>
-            <Button Name="BackToMainMenu" VerticalAlignment="Top" Content="Back to main menu" Grid.Row="0" Grid.Column="6" Click="BackToMainMenuButtonClick"/>
+            <Label Name="GameTextControl" Content="Choose your class" Grid.Row="0" Grid.Column="1"
+                   HorizontalAlignment="Center" FontSize="32" FontWeight="Bold" Margin="0,8,0,28"/>
+            <Button Name="BackToMainMenu" Content="Back to main menu" Grid.Row="0" Grid.Column="2"
+                    HorizontalAlignment="Right" Click="BackToMainMenuButtonClick"/>
 
-            <!--<Button Name="WarriorInfo" Content="Check warrior stats" Height="50" Grid.Column="1" Grid.Row="1" Click="WarriorInfoButtonClick"/>-->
-            <Label Name="WarriorInfo" Content="" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="22" BorderThickness="2" BorderBrush="Brown"/>
-            <Button Name="ChooseWarrior" Content="Choose warrior" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Click="ChooseWarriorButtonClick"/>
-            <Image Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Height="70" Source="C:\Users\oleks\OneDrive\Desktop\warrior.png" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Right"/>
+            <Border Grid.Row="1" Grid.Column="0" Margin="10" Padding="18" Background="{StaticResource PanelBrush}"
+                    BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Height="190" MaxWidth="250" Margin="8" Stretch="Uniform"
+                           Source="pack://siteoforigin:,,,/Images/warrior.png"/>
+                    <Label Name="WarriorInfo" Grid.Row="1" Content="" FontSize="16" Padding="14"
+                           Background="{StaticResource RaisedPanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                           BorderThickness="1" HorizontalContentAlignment="Center"/>
+                    <Button Name="ChooseWarrior" Grid.Row="2" Content="Choose warrior" Click="ChooseWarriorButtonClick"/>
+                </Grid>
+            </Border>
 
-            <Image Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Height="70" Source="C:\Users\oleks\OneDrive\Desktop\Archer.png" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Right"/>
-            <Label Name="ArcherInfo" Content="" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="22" BorderThickness="2" BorderBrush="Green"/>
-            <Button Name="ChooseArcher" Content="Choose archer" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2" Click="ChooseArcherButtonClick"/>
+            <Border Grid.Row="1" Grid.Column="1" Margin="10" Padding="18" Background="{StaticResource PanelBrush}"
+                    BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Height="190" MaxWidth="250" Margin="8" Stretch="Uniform"
+                           Source="pack://siteoforigin:,,,/Images/Archer.png"/>
+                    <Label Name="ArcherInfo" Grid.Row="1" Content="" FontSize="16" Padding="14"
+                           Background="{StaticResource RaisedPanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                           BorderThickness="1" HorizontalContentAlignment="Center"/>
+                    <Button Name="ChooseArcher" Grid.Row="2" Content="Choose archer" Click="ChooseArcherButtonClick"/>
+                </Grid>
+            </Border>
 
-            <Image Grid.Column="8" Grid.Row="2" Grid.RowSpan="2" Height="70" Source="C:\Users\oleks\OneDrive\Desktop\Mage.png" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Right"/>
-            <Label Name="MageInfo" Content="" Grid.Column="7" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="22" BorderThickness="2" BorderBrush="Blue"/>
-            <Button Name="ChooseMage" Content="Choose mage" Grid.Column="7" Grid.Row="5" Grid.ColumnSpan="2" Click="ChooseMageButtonClick"/>
-            
+            <Border Grid.Row="1" Grid.Column="2" Margin="10" Padding="18" Background="{StaticResource PanelBrush}"
+                    BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Height="190" MaxWidth="250" Margin="8" Stretch="Uniform"
+                           Source="pack://siteoforigin:,,,/Images/Mage.png"/>
+                    <Label Name="MageInfo" Grid.Row="1" Content="" FontSize="16" Padding="14"
+                           Background="{StaticResource RaisedPanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                           BorderThickness="1" HorizontalContentAlignment="Center"/>
+                    <Button Name="ChooseMage" Grid.Row="2" Content="Choose mage" Click="ChooseMageButtonClick"/>
+                </Grid>
+            </Border>
         </Grid>
 
-        
-            <ContentControl x:Name="ActionContent"/>
-        
+        <ContentControl x:Name="ActionContent"/>
     </Grid>
-    
 </UserControl>

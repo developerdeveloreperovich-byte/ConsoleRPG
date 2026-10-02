@@ -6,44 +6,31 @@
              xmlns:local="clr-namespace:GameWPF.UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="White"
+             Background="{StaticResource CanvasGradientBrush}"
              Name="DiscoverWorldControl">
-    <Grid>
-        <Grid>
+    <Grid Background="{StaticResource CanvasGradientBrush}">
+        <Grid Margin="36">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label Name="StoreTextControl" Content="DISCOVER WORLD" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
-            <Button Name="BackToActionVievMenuButton" Content="Back to action menu" Grid.Row="0" Grid.Column="10" Click="BackToActionViewMenuButtonClick" Grid.ColumnSpan="2"/>
-            <Button Name="GoDiscoverButton" Content="Go dicover!" Grid.Row="2" Grid.Column="4" Click="GoDiscoverButtonClick" Grid.ColumnSpan="3"/>
+            <Label Name="StoreTextControl" Content="DISCOVER WORLD" Grid.Row="0" Grid.Column="0"
+                   HorizontalAlignment="Center" FontSize="32" FontWeight="Bold"/>
+            <Button Name="BackToActionVievMenuButton" Content="Back to actions" Grid.Row="0" Grid.Column="1"
+                    Click="BackToActionViewMenuButtonClick"/>
+            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="24" Padding="36"
+                    Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1" CornerRadius="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Name="GoDiscoverButton" Content="Explore" MinWidth="240" MinHeight="64"
+                        FontSize="19" Click="GoDiscoverButtonClick"/>
+            </Border>
 
         </Grid>
-        <Grid x:Name="DiscoverPanel">
+        <Grid x:Name="DiscoverPanel" IsHitTestVisible="False">
             
         </Grid>
     </Grid>
