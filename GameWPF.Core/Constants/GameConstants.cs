@@ -37,7 +37,7 @@ namespace GameWPF.Core.Constants
 
 
         public const int DefaultCharacterExperience = 0;
-        public const int DefaultCharacterGold = 100;
+        public const int DefaultCharacterGold = 0;
         public const Level DefaultLevel = Level.Level1;
     }
 }
