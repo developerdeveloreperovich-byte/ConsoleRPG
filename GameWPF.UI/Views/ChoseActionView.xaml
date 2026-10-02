@@ -6,37 +6,41 @@
              xmlns:local="clr-namespace:GameWPF.UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="White"
+                 Background="{StaticResource CanvasGradientBrush}"
              Name="ChooseActionControl">
-    <Grid>
-        <Grid>
+            <Grid Background="{StaticResource CanvasGradientBrush}">
+            <Grid Margin="36">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Label Name="ActionTextControl" Content="Choose your action:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5"/>
-            <Button Name="BackToMainMenu" VerticalAlignment="Top" Content="Back to main menu" Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="2" Click="BackToMainMenuButtonClick"/>
-            <Button Name="SaveProgressButton" VerticalAlignment="Top" Content="Save progress" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="SaveProgressButtonClick"/>
-            
-            <Button Name="DiscoverWorldButton" Content="Discover World" Grid.Row="2" Grid.Column="1" Click="DiscoverWorldButtonClick"/>
-            <Button Name="CheckStatsButton" Content="Check stats" Grid.Row="2" Grid.Column="3" Click="CheckStatsButtonClick"/>
-            <Button Name="CheckInventoryButton" Content="Check inventory" Grid.Row="2" Grid.Column="5" Click="CheckInventoryButtonClick"/>
-            <Button Name="StoreButton" Content="Store" Grid.Row="2" Grid.Column="7" Click="StoreButtonClick"/>
+                <Button Name="SaveProgressButton" Content="Save progress" Grid.Row="0" Grid.Column="0"
+                    Click="SaveProgressButtonClick"/>
+                <Label Name="ActionTextControl" Content="Your next move" Grid.Row="0" Grid.Column="1"
+                   HorizontalAlignment="Center" FontSize="32" FontWeight="Bold"/>
+                <Button Name="BackToMainMenu" Content="Main menu" Grid.Row="0" Grid.Column="2"
+                    Click="BackToMainMenuButtonClick"/>
+
+                <Border Grid.Row="1" Grid.Column="1" Margin="20,36" Padding="28" Background="{StaticResource PanelBrush}"
+                    BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <UniformGrid Columns="2" Rows="2" MinWidth="500">
+                    <Button Name="DiscoverWorldButton" Content="Discover the world" MinHeight="86" FontSize="18"
+                        Click="DiscoverWorldButtonClick"/>
+                    <Button Name="CheckStatsButton" Content="Character stats" MinHeight="86" FontSize="18"
+                        Click="CheckStatsButtonClick"/>
+                    <Button Name="CheckInventoryButton" Content="Inventory" MinHeight="86" FontSize="18"
+                        Click="CheckInventoryButtonClick"/>
+                    <Button Name="StoreButton" Content="Visit the store" MinHeight="86" FontSize="18"
+                        Click="StoreButtonClick"/>
+                </UniformGrid>
+                </Border>
 
         </Grid>
     </Grid>

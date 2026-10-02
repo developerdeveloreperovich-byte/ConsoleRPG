@@ -6,50 +6,39 @@
              xmlns:local="clr-namespace:GameWPF.UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="White">
-    <Grid>
+             Background="{StaticResource CanvasGradientBrush}">
+    <Grid Background="{StaticResource CanvasGradientBrush}" Margin="36">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Label Name="StoreTextControl" Content="STORE" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
-        <Label Name="StoreInfoTextControl" Content="You need to select item. Then click BUY and there you go!" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="10" />
-        <Button Name="BackToActionVievMenuButton" Content="Back to menu" Grid.Row="0" Grid.Column="10" Click="BackToActionViewMenuButtonClick" Grid.ColumnSpan="2"/>
+        <Label Name="StoreTextControl" Content="THE TRADING POST" Grid.Row="0" Grid.Column="0"
+               HorizontalAlignment="Center" FontSize="32" FontWeight="Bold" Margin="0,0,0,12"/>
+        <Button Name="BackToActionVievMenuButton" Content="Back to actions" Grid.Row="0" Grid.Column="1"
+                Click="BackToActionViewMenuButtonClick"/>
+        <Label Name="StoreInfoTextControl" Content="You need to select item. Then click BUY and there you go!"
+               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+               FontSize="16" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,16"/>
 
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="4,0,12,16">
+            <TextBlock Name="SelectedItemName" VerticalAlignment="Center" Margin="8,0,24,0"
+                       FontSize="17" FontWeight="SemiBold"/>
+            <TextBlock Name="SelectedItemPrice" VerticalAlignment="Center" Foreground="{StaticResource GoldBrush}"
+                       FontSize="17" FontWeight="Bold"/>
+        </StackPanel>
+        <Button Name="BuyItemButton" Content="Buy selected item" Grid.Row="2" Grid.Column="1"
+                Click="BuyItemButtonClick" IsEnabled="False"/>
 
-
-        <Button Name="BuyItemButton" Content="Buy" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="3" Click="BuyItemButtonClick" IsEnabled="False"/>
-
-        <TextBlock Name="SelectedItemName" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"/>
-        <TextBlock Name="SelectedItemPrice" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"/>
-
-        <ListBox x:Name="ItemsListBox" Background="LightGray" Height="140" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="10" Grid.RowSpan="4" SelectionChanged="ItemsListBox_SelectionChanged"
-          HorizontalAlignment="Center" SelectedIndex="-1">
+        <ListBox x:Name="ItemsListBox" Background="{StaticResource PanelBrush}" Grid.Column="0" Grid.Row="3"
+                 Grid.ColumnSpan="2" Margin="0,0,0,8" SelectionChanged="ItemsListBox_SelectionChanged"
+                 SelectedIndex="-1" ScrollViewer.HorizontalScrollBarVisibility="Auto">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
@@ -68,8 +57,8 @@
                                 <Border x:Name="CardBorder"
                                         Margin="4"
                                         Padding="8"
-                                        Background="#FFF7F8FA"
-                                        BorderBrush="#FFB9C2CF"
+                                        Background="{StaticResource RaisedPanelBrush}"
+                                        BorderBrush="{StaticResource BorderBrush}"
                                         BorderThickness="1"
                                         CornerRadius="6">
                                     <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -77,16 +66,16 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsEnabled" Value="False">
-                                        <Setter TargetName="CardBorder" Property="Background" Value="#FFE5E7EB"/>
-                                        <Setter TargetName="CardBorder" Property="BorderBrush" Value="#FFD1D5DB"/>
+                                        <Setter TargetName="CardBorder" Property="Background" Value="#26312B"/>
+                                        <Setter TargetName="CardBorder" Property="BorderBrush" Value="#39463E"/>
                                     </Trigger>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="CardBorder" Property="Background" Value="#FFF0F4FA"/>
-                                        <Setter TargetName="CardBorder" Property="BorderBrush" Value="#FF78869B"/>
+                                        <Setter TargetName="CardBorder" Property="Background" Value="#304638"/>
+                                        <Setter TargetName="CardBorder" Property="BorderBrush" Value="{StaticResource GoldBrush}"/>
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="CardBorder" Property="Background" Value="#FFEAF2FF"/>
-                                        <Setter TargetName="CardBorder" Property="BorderBrush" Value="#FF2864C5"/>
+                                        <Setter TargetName="CardBorder" Property="Background" Value="#3A513D"/>
+                                        <Setter TargetName="CardBorder" Property="BorderBrush" Value="{StaticResource GoldBrush}"/>
                                         <Setter TargetName="CardBorder" Property="BorderThickness" Value="2"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
@@ -108,7 +97,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="{Binding ImagePath}" Width="80" Height="80" Stretch="Uniform"/>
                         <TextBlock Text="{Binding Price}"
-                                   Foreground="Green"
+                                   Foreground="{StaticResource GoldBrush}"
                                    Panel.ZIndex="100"
                                    HorizontalAlignment="Center">
                             <TextBlock.Style>

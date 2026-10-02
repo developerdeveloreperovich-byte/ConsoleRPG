@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:GameWPF.UI"
         xmlns:views="clr-namespace:GameWPF.UI.Views"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="MegaRPG"
+        Background="{StaticResource CanvasBrush}"
         WindowState="Maximized">
 
     <Grid>

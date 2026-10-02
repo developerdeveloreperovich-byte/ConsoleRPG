@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GameWPF.UI.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FFF3F5F7">
+                <Grid Background="{StaticResource CanvasGradientBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -34,15 +34,15 @@
             <Border Grid.Row="0" Grid.Column="0"
                     Margin="6,10,6,0"
                     Padding="24"
-                    Background="White"
-                    BorderBrush="#FF4E8A78"
-                    BorderThickness="2"
+                                Background="{StaticResource PanelBrush}"
+                                BorderBrush="{StaticResource AccentBrush}"
+                                BorderThickness="1"
                     CornerRadius="8"
                     VerticalAlignment="Top">
                 <StackPanel>
                     <TextBlock Text="PLAYER"
                                Margin="0,0,0,16"
-                               Foreground="#FF35725F"
+                                           Foreground="{StaticResource AccentHoverBrush}"
                                FontSize="18"
                                FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal">
@@ -63,7 +63,7 @@
             <TextBlock Grid.Row="0" Grid.Column="1"
                        Text="VS"
                        Margin="8,103,8,0"
-                       Foreground="#FF68717D"
+                                   Foreground="{StaticResource GoldBrush}"
                        FontSize="20"
                        FontWeight="Bold"
                        VerticalAlignment="Top" RenderTransformOrigin="0.541,1.62"/>
@@ -71,15 +71,15 @@
             <Border Grid.Row="0" Grid.Column="2"
                     Margin="6,10,6,0"
                     Padding="24"
-                    Background="White"
-                    BorderBrush="#FFB95858"
-                    BorderThickness="2"
+                                Background="{StaticResource PanelBrush}"
+                                BorderBrush="#9B6557"
+                                BorderThickness="1"
                     CornerRadius="8"
                     VerticalAlignment="Top">
                 <StackPanel>
                     <TextBlock Text="OPPONENT"
                                Margin="0,0,0,16"
-                               Foreground="#FF9C3F3F"
+                                           Foreground="#D28C72"
                                FontSize="18"
                                FontWeight="Bold"
                                />
@@ -109,7 +109,7 @@
                         Width="170"
                         Height="48"
                         Margin="0,0,12,0"
-                        Background="#FF9C3F3F"
+                                    Background="#8F5144"
                         Foreground="White"
                         FontSize="16"
                         FontWeight="Bold"
@@ -118,7 +118,7 @@
                         Content="Try to run"
                         Width="170"
                         Height="48"
-                        Background="#FF526174"
+                                    Background="#394A43"
                         Foreground="White"
                         FontSize="16"
                         FontWeight="SemiBold"
@@ -128,7 +128,7 @@
                         Width="170"
                         Height="48"
                         Margin="12,0,0,0"
-                        Background="#FF526174"
+                                    Background="#394A43"
                         Foreground="White"
                         FontSize="16"
                         FontWeight="SemiBold"
@@ -139,7 +139,7 @@
                         Width="170"
                         Height="48"
                         Margin="12,0,0,0"
-                        Background="#FF35725F"
+                                    Background="{StaticResource AccentBrush}"
                         Foreground="White"
                         FontSize="16"
                         FontWeight="SemiBold"

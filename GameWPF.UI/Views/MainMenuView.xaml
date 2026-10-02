@@ -6,29 +6,33 @@
              xmlns:local="clr-namespace:GameWPF.UI.Views"
              mc:Ignorable="d" 
              
-             Background="White">
-    <Grid>
+             Background="{StaticResource CanvasGradientBrush}">
+    <Grid Background="{StaticResource CanvasGradientBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Name="GreetingControl" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5"/>
-        <Button Name="StartGameButton" Content="Start game" Grid.Row="2" Grid.Column="1" Click="StartGameButtonClick"/>
-        <Button Name="ContinueGameButton" Content="Continue" Grid.Row="2" Grid.Column="2" Click="ContinueGameButtonClick"/>
-        <Button Name="ReadRulesButton" Content="Read rules" Grid.Row="2" Grid.Column="4" Click="ReadRulesButtonClick"/>
-        <Button Name="ExitButton" Content="Exit" Grid.Row="2" Grid.Column="6" Click="ExitButtonClick"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="24,0,24,30">
+            <TextBlock Text="MEGARPG" HorizontalAlignment="Center" Foreground="{StaticResource GoldBrush}"
+                       FontFamily="Georgia" FontSize="15" FontWeight="Bold" Margin="0,0,0,18"/>
+            <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1" CornerRadius="8" Padding="48,38" MinWidth="420">
+                <StackPanel HorizontalAlignment="Center">
+                    <Label Name="GreetingControl" HorizontalAlignment="Center" FontFamily="Georgia"
+                           FontSize="34" FontWeight="Bold" Margin="0,0,0,28"/>
+                    <Button Name="StartGameButton" Content="Begin adventure" Width="260" Click="StartGameButtonClick"/>
+                    <Button Name="ContinueGameButton" Content="Continue journey" Width="260" Click="ContinueGameButtonClick"/>
+                    <Button Name="ReadRulesButton" Content="Read the rules" Width="260" Click="ReadRulesButtonClick"/>
+                    <Button Name="ExitButton" Content="Leave game" Width="260" Click="ExitButtonClick"
+                            Background="#533D35" BorderBrush="#8E6854"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
     </Grid>
 </UserControl>
 
